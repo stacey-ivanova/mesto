@@ -19,3 +19,21 @@ document.addEventListener("keyup", function (KeyboardEvent) {
     closePopup();
   }
 });
+//js для формы
+let formElement = document.querySelector(".popup__form");
+let nameInput = formElement.querySelector(".popup__profile-name");
+let jobInput = formElement.querySelector(".popup__profile-profession");
+
+function formSubmitHandler(evt) {
+  evt.preventDefault();
+  let nameValue = nameInput.value;
+  let jobValue = jobInput.value;
+  let profileName = document.querySelector(".profile__title");
+  let profileJob = document.querySelector(".profile__subtitle");
+
+  profileName.textContent = nameValue;
+  profileJob.textContent = jobValue;
+}
+
+formElement.addEventListener("submit", formSubmitHandler);
+formElement.addEventListener("submit", closePopup);
