@@ -1,0 +1,15 @@
+.profile__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  /* text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; */
+}
+
+@media screen and (max-width: 767px) {
+  .profile__user {
+    gap: 14px;
+  }
+}
