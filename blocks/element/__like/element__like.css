@@ -1,0 +1,19 @@
+.element__like {
+  width: 22px;
+  height: 19px;
+  background-image: url(../__like/Vector.svg);
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
+.element__like:hover {
+  opacity: 0.6;
+}
+
+.element__like:active {
+  background-image: url(../__like/Union.svg);
+}
