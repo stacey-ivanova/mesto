@@ -1,7 +1,17 @@
 .profile__text-edit {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: baseline;
+  justify-content: flex-start;
+  align-items: flex-end;
   gap: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__text-edit {
+    justify-content: flex-start;
+    gap: 10px;
+    padding-left: 46px;
+    box-sizing: border-box;
+  }
 }

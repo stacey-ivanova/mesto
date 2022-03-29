@@ -11,7 +11,7 @@
       <header class="header">
         <img
           class="header__logo"
-          src="./blocks/header/__logo/logo.svg"
+          src="./blocks/header/__logo/images/logo.svg"
           alt="логотип сайта"
         />
       </header>
@@ -21,99 +21,99 @@
             <div class="profile__user">
               <img
                 class="profile__avatar"
-                src="./blocks/profile/__avatar/image.svg"
+                src="./blocks/profile/__avatar/images/Avatar.png"
                 alt="фотография пользователя"
               />
               <div class="profile__text">
                 <div class="profile__text-edit">
                   <h1 class="profile__title">Жак-Ив Кусто</h1>
-                  <button class="profile__edit-button"></button>
+                  <button type="button" class="profile__edit-button"></button>
                 </div>
                 <p class="profile__subtitle">Исследователь океана</p>
               </div>
             </div>
-            <button class="profile__add-button"></button>
+            <button type="button" class="profile__add-button"></button>
           </div>
         </section>
         <section class="articles">
           <ul class="elements">
             <li>
-              <div class="element">
+              <article class="element">
                 <img
                   class="element__photo"
-                  src="./blocks/element/__photo/kirill-pershin-1088404-unsplash.png"
+                  src="./blocks/element/__photo/images/kirill-pershin-1088404-unsplash.png"
                   alt="фотография Карачаевска"
                 />
                 <div class="element__info">
-                  <p class="element__text">Карачаевск</p>
-                  <button class="element__like"></button>
+                  <h2 class="element__text">Карачаевск</h2>
+                  <button type="button" class="element__like"></button>
                 </div>
-              </div>
+              </article>
             </li>
             <li>
-              <div class="element">
+              <article class="element">
                 <img
                   class="element__photo"
-                  src="./blocks/element/__photo/kirill-pershin-1404681-unsplash.png"
+                  src="./blocks/element/__photo/images/kirill-pershin-1404681-unsplash.png"
                   alt="фотография Эльбруса"
                 />
                 <div class="element__info">
-                  <p class="element__text">Гора Эльбрус</p>
-                  <button class="element__like"></button>
+                  <h2 class="element__text">Гора Эльбрус</h2>
+                  <button type="button" class="element__like"></button>
                 </div>
-              </div>
+              </article>
             </li>
             <li>
-              <div class="element">
+              <article class="element">
                 <img
                   class="element__photo"
-                  src="./blocks/element/__photo/kirill-pershin-1556355-unsplash.png"
+                  src="./blocks/element/__photo/images/kirill-pershin-1556355-unsplash.png"
                   alt="фотография Домбая"
                 />
                 <div class="element__info">
-                  <p class="element__text">Домбай</p>
-                  <button class="element__like"></button>
+                  <h2 class="element__text">Домбай</h2>
+                  <button type="button" class="element__like"></button>
                 </div>
-              </div>
+              </article>
             </li>
             <li>
-              <div class="element">
+              <article class="element">
                 <img
                   class="element__photo"
-                  src="./blocks/element/__photo/kirill-pershin-1404681-unsplash.png"
+                  src="./blocks/element/__photo/images/kirill-pershin-1404681-unsplash.png"
                   alt="фотография Эльбруса"
                 />
                 <div class="element__info">
-                  <p class="element__text">Гора Эльбрус</p>
-                  <button class="element__like"></button>
+                  <h2 class="element__text">Гора Эльбрус</h2>
+                  <button type="button" class="element__like"></button>
                 </div>
-              </div>
+              </article>
             </li>
             <li>
-              <div class="element">
+              <article class="element">
                 <img
                   class="element__photo"
-                  src="./blocks/element/__photo/kirill-pershin-1556355-unsplash.png"
+                  src="./blocks/element/__photo/images/kirill-pershin-1556355-unsplash.png"
                   alt="фотография Домбая"
                 />
                 <div class="element__info">
-                  <p class="element__text">Домбай</p>
-                  <button class="element__like"></button>
+                  <h2 class="element__text">Домбай</h2>
+                  <button type="button" class="element__like"></button>
                 </div>
-              </div>
+              </article>
             </li>
             <li>
-              <div class="element">
+              <article class="element">
                 <img
                   class="element__photo"
-                  src="./blocks/element/__photo/kirill-pershin-1088404-unsplash.png"
+                  src="./blocks/element/__photo/images/kirill-pershin-1088404-unsplash.png"
                   alt="фотография Карачаевска"
                 />
                 <div class="element__info">
-                  <p class="element__text">Карачаево-Черкессия</p>
-                  <button class="element__like"></button>
+                  <h2 class="element__text">Карачаево-Черкессия</h2>
+                  <button type="button" class="element__like"></button>
                 </div>
-              </div>
+              </article>
             </li>
           </ul>
         </section>
@@ -123,30 +123,28 @@
       </footer>
     </div>
     <div class="popup">
-      <div class="popup__window">
-        <button class="popup__close-button"></button>
-        <section class="popup__content">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form">
-            <input
-              type="text"
-              name="profile-name"
-              placeholder="Жак-Ив Кусто"
-              class="popup__profile-name"
-            />
-            <input
-              type="text"
-              name="profile-profession"
-              placeholder="Исследователь океана"
-              class="popup__profile-profession"
-            />
-            <button type="submit" class="popup__submit-button">
-              Сохранить
-            </button>
-          </form>
-        </section>
-      </div>
+      <section class="popup__content">
+        <button type="button" class="popup__close-button"></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form class="popup__form" name="edit-form">
+          <input
+            type="text"
+            name="profile-name"
+            placeholder="Введите имя"
+            class="popup__input popup__input_type_name"
+            required
+          />
+          <input
+            type="text"
+            name="profile-job"
+            placeholder="Введите профессию"
+            class="popup__input popup__input_type_job"
+            required
+          />
+          <button type="submit" class="popup__submit-button">Сохранить</button>
+        </form>
+      </section>
     </div>
-    <script src="index.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>
