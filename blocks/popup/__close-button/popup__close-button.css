@@ -1,7 +1,7 @@
 .popup__close-button {
-  position: relative;
-  top: -43px;
-  right: -401px;
+  position: absolute;
+  top: -40px;
+  right: -40px;
   background: none;
   border: none;
   outline: none;
@@ -41,8 +41,8 @@
 
 @media screen and (max-width: 767px) {
   .popup__close-button {
-    top: -42px;
-    right: -237px;
+    top: -36px;
+    right: 0px;
     width: 20px;
     height: 20px;
   }

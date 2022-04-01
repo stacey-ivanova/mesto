@@ -12,4 +12,9 @@
   color: #000000;
   box-sizing: border-box;
   display: block;
+  margin-bottom: 30px;
+}
+
+.popup__input:last-of-type {
+  margin-bottom: 0px;
 }
