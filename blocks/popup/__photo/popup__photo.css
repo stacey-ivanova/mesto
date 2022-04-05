@@ -1,6 +1,5 @@
-.popup__photo.css {
+.popup__photo {
   width: 100%;
-  padding-bottom: 100%;
   margin-bottom: 10px;
   object-fit: contain;
 }
