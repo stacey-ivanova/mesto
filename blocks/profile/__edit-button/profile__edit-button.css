@@ -3,7 +3,7 @@
   height: 24px;
   outline: none;
   border: 1px solid #ffffff;
-  background-image: url(../__edit-button/images/Vector.svg);
+  background-image: url(../__edit-button/images/vector-edit.svg);
   background-color: #000000;
   background-repeat: no-repeat;
   background-position: center;
@@ -11,8 +11,7 @@
   object-fit: cover;
   box-sizing: border-box;
   padding: 7px;
-  /* margin-bottom: 3px; */
-  margin-top: 10px;
+  margin-bottom: 3px;
 }
 
 .profile__edit-button:hover {
@@ -21,8 +20,6 @@
 
 @media screen and (max-width: 767px) {
   .profile__edit-button {
-    margin-top: 0;
-    margin-bottom: 3px;
     width: 18px;
     height: 18px;
     background-size: 7.5px 7.5px;

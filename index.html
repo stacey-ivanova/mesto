@@ -21,7 +21,7 @@
             <div class="profile__user">
               <img
                 class="profile__avatar"
-                src="./blocks/profile/__avatar/images/Avatar.png"
+                src="./blocks/profile/__avatar/images/avatar.png"
                 alt="фотография пользователя"
               />
               <div class="profile__text">
@@ -37,20 +37,25 @@
         </section>
         <section class="articles">
           <ul class="elements">
-            <li>
-              <article class="element">
-                <img
-                  class="element__photo"
-                  src="./blocks/element/__photo/images/kirill-pershin-1088404-unsplash.png"
-                  alt="фотография Карачаевска"
-                />
-                <div class="element__info">
-                  <h2 class="element__text">Карачаевск</h2>
-                  <button type="button" class="element__like"></button>
-                </div>
-              </article>
-            </li>
-            <li>
+            <template id="card">
+              <li class="card-item">
+                <article class="element">
+                  <button type="button" class="element__trash">
+                    <img
+                      src="./blocks/element/__trash/images/group.svg"
+                      width="18px"
+                      height="19px"
+                    />
+                  </button>
+                  <img class="element__photo" src="" alt="" />
+                  <div class="element__info">
+                    <h2 class="element__text"></h2>
+                    <button type="button" class="element__like"></button>
+                  </div>
+                </article>
+              </li>
+            </template>
+            <!-- <li>
               <article class="element">
                 <img
                   class="element__photo"
@@ -114,7 +119,7 @@
                   <button type="button" class="element__like"></button>
                 </div>
               </article>
-            </li>
+            </li> -->
           </ul>
         </section>
       </main>
@@ -122,7 +127,7 @@
         <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
     </div>
-    <div class="popup">
+    <div class="popup popup_type_profile">
       <div class="popup__content">
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -143,6 +148,38 @@
           />
           <button type="submit" class="popup__submit-button">Сохранить</button>
         </form>
+      </div>
+    </div>
+    <div class="popup popup_type_card">
+      <div class="popup__content">
+        <button type="button" class="popup__close-button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form" name="edit-form">
+          <input
+            type="text"
+            name="profile-name"
+            placeholder="Название"
+            class="popup__input popup__input_type_title"
+            required
+          />
+          <input
+            type="text"
+            name="profile-job"
+            placeholder="Ссылка на картинку"
+            class="popup__input popup__input_type_link"
+            required
+          />
+          <button type="submit" class="popup__submit-button">Создать</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_photo">
+      <div class="popup__content popup__content_type_photo">
+        <button type="button" class="popup__close-button"></button>
+        <figure class="popup__photo-group">
+          <img class="popup__photo" src="" alt="" />
+          <figcaption class="popup__photo-caption"></figcaption>
+        </figure>
       </div>
     </div>
     <script src="./js/index.js"></script>
