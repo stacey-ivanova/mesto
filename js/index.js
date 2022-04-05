@@ -78,7 +78,7 @@ function openPopup(item, photo, photoCaption) {
   }
   else if (item === popupPhoto) {
     popupPhoto.querySelector('.popup__photo').src= photo;
-    popupPhoto.querySelector('.popup__photo-caption').textContent=photocapch;
+    popupPhoto.querySelector('.popup__photo-caption').textContent=photoCaption;
     }
 }
 
