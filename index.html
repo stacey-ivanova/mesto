@@ -36,101 +36,35 @@
           </div>
         </section>
         <section class="articles">
-          <ul class="elements">
-            <template id="card">
-              <li class="card-item">
-                <article class="element">
-                  <button type="button" class="element__trash">
-                    <img
-                      src="./blocks/element/__trash/images/group.svg"
-                      width="18px"
-                      height="19px"
-                    />
-                  </button>
-                  <img
-                    class="element__photo"
-                    src="./blocks/element/__photo/images/kirill-pershin-1556355-unsplash.png"
-                    alt=""
-                  />
-                  <div class="element__info">
-                    <h2 class="element__text"></h2>
-                    <button type="button" class="element__like"></button>
-                  </div>
-                </article>
-              </li>
-            </template>
-            <!-- <li>
-              <article class="element">
-                <img
-                  class="element__photo"
-                  src="./blocks/element/__photo/images/kirill-pershin-1404681-unsplash.png"
-                  alt="фотография Эльбруса"
-                />
-                <div class="element__info">
-                  <h2 class="element__text">Гора Эльбрус</h2>
-                  <button type="button" class="element__like"></button>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article class="element">
-                <img
-                  class="element__photo"
-                  src="./blocks/element/__photo/images/kirill-pershin-1556355-unsplash.png"
-                  alt="фотография Домбая"
-                />
-                <div class="element__info">
-                  <h2 class="element__text">Домбай</h2>
-                  <button type="button" class="element__like"></button>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article class="element">
-                <img
-                  class="element__photo"
-                  src="./blocks/element/__photo/images/kirill-pershin-1404681-unsplash.png"
-                  alt="фотография Эльбруса"
-                />
-                <div class="element__info">
-                  <h2 class="element__text">Гора Эльбрус</h2>
-                  <button type="button" class="element__like"></button>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article class="element">
-                <img
-                  class="element__photo"
-                  src="./blocks/element/__photo/images/kirill-pershin-1556355-unsplash.png"
-                  alt="фотография Домбая"
-                />
-                <div class="element__info">
-                  <h2 class="element__text">Домбай</h2>
-                  <button type="button" class="element__like"></button>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article class="element">
-                <img
-                  class="element__photo"
-                  src="./blocks/element/__photo/images/kirill-pershin-1088404-unsplash.png"
-                  alt="фотография Карачаевска"
-                />
-                <div class="element__info">
-                  <h2 class="element__text">Карачаево-Черкессия</h2>
-                  <button type="button" class="element__like"></button>
-                </div>
-              </article>
-            </li> -->
-          </ul>
+          <ul class="elements"></ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">© 2022 Mesto Russia</p>
       </footer>
     </div>
+    <template id="card">
+      <li class="card-item">
+        <article class="element">
+          <button type="button" class="element__trash">
+            <img
+              src="./blocks/element/__trash/images/group.svg"
+              width="18px"
+              height="19px"
+            />
+          </button>
+          <img
+            class="element__photo"
+            src="./blocks/element/__photo/images/kirill-pershin-1556355-unsplash.png"
+            alt=""
+          />
+          <div class="element__info">
+            <h2 class="element__text"></h2>
+            <button type="button" class="element__like"></button>
+          </div>
+        </article>
+      </li>
+    </template>
     <div class="popup popup_type_profile">
       <div class="popup__content">
         <button type="button" class="popup__close-button"></button>
@@ -158,7 +92,7 @@
       <div class="popup__content">
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form" name="edit-form">
+        <form class="popup__form_type_card" name="edit-form">
           <input
             type="text"
             name="profile-name"
