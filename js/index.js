@@ -16,7 +16,7 @@ const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
 
 // переменные формы заполнения попапа новой карточки
-const formElementCard = popupCard.querySelector('.popup__form_type_card');
+const formElementCard = popupCard.querySelector('.popup__form_type_place');
 const titleInput = formElementCard.querySelector('.popup__input_type_title');
 const linkInput = formElementCard.querySelector('.popup__input_type_link');
 const cardTitle = document.querySelector('.element__text');
