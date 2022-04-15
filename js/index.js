@@ -28,8 +28,8 @@ const cardTemplate = document.querySelector('#card').content;
 // const likeButton = document.querySelector('.element__like');
 
 // переменные попапа фото
-// const photoItem = popupPhoto.querySelector('.popup__photo');
-// const caption = popupPhoto.querySelector('.popup__photo-caption');
+const photoItem = popupPhoto.querySelector('.popup__photo');
+const caption = popupPhoto.querySelector('.popup__photo-caption');
 
 // переменная enter
 const enter_key_code = 13;
@@ -80,18 +80,16 @@ function openPopupProfile (item) {
   };
 
 function openPopupPhoto (item, photo, photoCaption) {
-  popupPhoto.querySelector('.popup__photo').src = photo;
-  popupPhoto.querySelector('.popup__photo-caption').textContent = photoCaption;
-  popupPhoto.querySelector('.popup__photo').alt = photoCaption;
+  photoItem.src = photo;
+  caption.textContent = photoCaption;
+  photoItem.alt = photoCaption;
   openPopup(item);
   }
 
 // функция закрытия попапа
 function closePopup(item) {
-  // item.classList.remove('popup_opened');
-  item.closest('.popup').classList.remove('popup_opened');
-
-}
+  item.classList.remove('popup_opened');
+ }
 
 // функция заполнения и отправки попапа профиля
 function formSubmitHandlerProfile(evt) {
@@ -125,8 +123,7 @@ function createCard(titleValue, linkValue) {
 
   cardElement.querySelector('.element__trash').addEventListener('click', deleteCard);
   cardElement.querySelector('.element__like').addEventListener('click', likeCard);
-  cardElement.querySelector('.element__photo').addEventListener('click', function () {openPopupPhoto(popupPhoto, linkValue, titleValue);});
-  photoCloseButton.addEventListener('click', function () {closePopup(popupPhoto);});
+  cardPhoto.addEventListener('click', function () {openPopupPhoto(popupPhoto, linkValue, titleValue);});
   return cardElement;
 };
 
@@ -158,6 +155,7 @@ buttonAdd.addEventListener('click', function () {openPopup(popupCard);});
 //слушатели закрытия попапов
 profileCloseButton.addEventListener('click', function () {closePopup(popupProfile);});
 cardCloseButton.addEventListener('click', function () {closePopup(popupCard);});
+photoCloseButton.addEventListener('click', function () {closePopup(popupPhoto);});
 
 //слушатели отправки формы попапа профиля
 formElementProfile.addEventListener('submit', formSubmitHandlerProfile);
