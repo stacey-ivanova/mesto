@@ -8,15 +8,16 @@ const profileCloseButton = popupProfile.querySelector('.popup__close-button');
 const cardCloseButton = popupCard.querySelector('.popup__close-button');
 const photoCloseButton = popupPhoto.querySelector('.popup__close-button');
 
+
 // переменные формы заполнения попапа профиля
-const formElementProfile = popupProfile.querySelector('.popup__form');
+const formElementProfile = popupProfile.querySelector('.popup__form_type_profile');
 const nameInput = formElementProfile.querySelector('.popup__input_type_name');
 const jobInput = formElementProfile.querySelector('.popup__input_type_job');
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
 
 // переменные формы заполнения попапа новой карточки
-const formElementCard = popupCard.querySelector('.popup__form_type_place');
+const formElementCard = popupCard.querySelector('.popup__form_type_card');
 const titleInput = formElementCard.querySelector('.popup__input_type_title');
 const linkInput = formElementCard.querySelector('.popup__input_type_link');
 const cardTitle = document.querySelector('.element__text');
@@ -28,8 +29,8 @@ const cardTemplate = document.querySelector('#card').content;
 // const likeButton = document.querySelector('.element__like');
 
 // переменные попапа фото
-// const photoItem = popupPhoto.querySelector('.popup__photo');
-// const caption = popupPhoto.querySelector('.popup__photo-caption');
+const photoItem = popupPhoto.querySelector('.popup__photo');
+const caption = popupPhoto.querySelector('.popup__photo-caption');
 
 // переменная enter
 const enter_key_code = 13;
@@ -80,16 +81,16 @@ function openPopupProfile (item) {
   };
 
 function openPopupPhoto (item, photo, photoCaption) {
-  popupPhoto.querySelector('.popup__photo').src = photo;
-  popupPhoto.querySelector('.popup__photo-caption').textContent = photoCaption;
-  popupPhoto.querySelector('.popup__photo').alt = photoCaption;
+  photoItem.src = photo;
+  caption.textContent = photoCaption;
+  photoItem.alt = photoCaption;
   openPopup(item);
   }
 
 // функция закрытия попапа
 function closePopup(item) {
-  // item.classList.remove('popup_opened');
-  item.closest('.popup').classList.remove('popup_opened');
+  item.classList.remove('popup_opened');
+  // item.closest('.popup').classList.remove('popup_opened');
 
 }
 
@@ -125,8 +126,7 @@ function createCard(titleValue, linkValue) {
 
   cardElement.querySelector('.element__trash').addEventListener('click', deleteCard);
   cardElement.querySelector('.element__like').addEventListener('click', likeCard);
-  cardElement.querySelector('.element__photo').addEventListener('click', function () {openPopupPhoto(popupPhoto, linkValue, titleValue);});
-  photoCloseButton.addEventListener('click', function () {closePopup(popupPhoto);});
+  cardPhoto.addEventListener('click', function () {openPopupPhoto(popupPhoto, linkValue, titleValue);});
   return cardElement;
 };
 
@@ -151,6 +151,7 @@ initialCards.forEach(function (card) {
   renderCard(card.name, card.link)
 });
 
+
 //слушатели открытия попапов
 buttonEdit.addEventListener('click', function () {openPopupProfile(popupProfile);});
 buttonAdd.addEventListener('click', function () {openPopup(popupCard);});
@@ -158,83 +159,10 @@ buttonAdd.addEventListener('click', function () {openPopup(popupCard);});
 //слушатели закрытия попапов
 profileCloseButton.addEventListener('click', function () {closePopup(popupProfile);});
 cardCloseButton.addEventListener('click', function () {closePopup(popupCard);});
+photoCloseButton.addEventListener('click', function () {closePopup(popupPhoto);});
 
 //слушатели отправки формы попапа профиля
 formElementProfile.addEventListener('submit', formSubmitHandlerProfile);
 
 //слушатели отправки формы попапа карточек
 formElementCard.addEventListener('submit', formSubmitHandlerCard);
-
-// ЛИШНЕЕ
-
-// let ESC_KEY_CODE = 27;
-// document.addEventListener('keyup', function (KeyboardEvent) {
-//   if (event.keyCode === ESC_KEY_CODE) {
-//     closePopup();
-//   }
-// });
-
-// initialCards.forEach(function (nameValue, linkValue) {
-//   const cardTemplate = document.querySelector('#card').content;
-//   const cardElement = cardTemplate.querySelector('.card-item').cloneNode(true);
-//   cardElement.querySelector('.element__text').textContent = item.name;
-//   cardElement.querySelector('.element__photo').src = item.link;
-//   cardElement.querySelector('.element__photo').alt = item.alt;
-//   cardElement.querySelector('.element__like').addEventListener('click', function (evt) {
-//     evt.target.classList.toggle('element__like:active')
-//     });
-
-//   elementsContainer.append(cardElement);
-// });
-
-//функция заполнения и отправки попапа карточек
-// function formSubmitHandlerCard(evt) {
-//   evt.preventDefault();
-//   const titleValue = titleInput.value;
-//   const linkValue = linkInput.value;
-
-//   cardTitle.textContent = titleValue;
-//   cardPhoto.src = linkValue;
-//   cardPhoto.alt = titleValue;
-//   closePopup(evt)
-// }
-
-// cardElement.querySelector('.element__like').addEventListener('click', function (evt) {
-//   evt.target.classList.toggle('element__like:active')
-//   });
-
-//   for (let i=0; i < deleteButton.length; i++) {
-//       deleteButton[i].addEventListener('click', function () {
-//       const cardElement = deleteButton.closest('.card-item');
-//       cardElement.remove();})
-//     };
-
-// function creatPhotoPopup(photoSrc,photoCaption){
-//   return function( evt ){
-//     evt.querySelector('.popup__photo').src=photoSrc;
-//     evt.querySelector('.popup__photo-caption').textContent=photoCaption;
-//     openPopup(popupPhoto);
-//       }
-// }
-
-// функия открытия попапа
-// function openPopup(item,photoSrc,photoCaption) {
-//   item.classList.add('popup_opened');
-//   if (item === popupProfile) {
-//     nameInput.value = profileName.textContent;
-//     jobInput.value = profileJob.textContent;
-//   }
-//   else if (item === popupPhoto) {
-//     item.querySelector('.popup__photo').src=photoSrc;
-// item.querySelector('.popup__photo-caption').textContent=photoCaption;
-//   }
-// }
-// photoItem.src = document.querySelector('.element__photo').src
-//     caption.textContent = document.querySelector('.element__text').textContent
-
-//слушатель отправки формы по enter
-// document.addEventListener('keyup', function (KeyboardEvent) {
-//   if (event.keyCode === enter_key_code) {
-//     formSubmitHandlerCard();
-//   }
-// });

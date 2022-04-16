@@ -69,21 +69,37 @@
       <div class="popup__content">
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="edit-form">
-          <input
-            type="text"
-            name="profile-name"
-            placeholder="Введите имя"
-            class="popup__input popup__input_type_name"
-            required
-          />
-          <input
-            type="text"
-            name="profile-job"
-            placeholder="Введите профессию"
-            class="popup__input popup__input_type_job"
-            required
-          />
+        <form
+          class="popup__form popup__form_type_profile"
+          name="edit-form"
+          novalidate
+        >
+          <label class="popup__form-field">
+            <input
+              type="text"
+              name="profile-name"
+              id="name-input"
+              placeholder="Введите имя"
+              class="popup__input popup__input_type_name"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="popup__input-error name-input-error"></span>
+          </label>
+          <label class="popup__form-field">
+            <input
+              type="text"
+              name="profile-job"
+              id="job-input"
+              placeholder="Введите профессию"
+              class="popup__input popup__input_type_job"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="popup__input-error job-input-error"></span>
+          </label>
           <button type="submit" class="popup__submit-button">Сохранить</button>
         </form>
       </div>
@@ -92,21 +108,35 @@
       <div class="popup__content">
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form popup__form_type_place" name="edit-form">
-          <input
-            type="text"
-            name="profile-name"
-            placeholder="Название"
-            class="popup__input popup__input_type_title"
-            required
-          />
-          <input
-            type="text"
-            name="profile-job"
-            placeholder="Ссылка на картинку"
-            class="popup__input popup__input_type_link"
-            required
-          />
+        <form
+          class="popup__form popup__form_type_card"
+          name="edit-form"
+          novalidate
+        >
+          <label class="popup__form-field">
+            <input
+              type="text"
+              id="title-input"
+              name="profile-name"
+              placeholder="Название"
+              class="popup__input popup__input_type_title"
+              minlength="1"
+              maxlength="30"
+              required
+            />
+            <span class="popup__input-error title-input-error"></span>
+          </label>
+          <label class="popup__form-field">
+            <input
+              name="profile-job"
+              id="link-input"
+              placeholder="Ссылка на картинку"
+              class="popup__input popup__input_type_link"
+              type="url"
+              required
+            />
+            <span class="popup__input-error link-input-error"></span>
+          </label>
           <button type="submit" class="popup__submit-button">Создать</button>
         </form>
       </div>
@@ -125,5 +155,6 @@
       </div>
     </div>
     <script src="./js/index.js"></script>
+    <script src="./js/validate.js"></script>
   </body>
 </html>
