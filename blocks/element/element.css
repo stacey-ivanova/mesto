@@ -1,6 +1,7 @@
 .element {
   position: relative;
   max-width: 282px;
+  max-height: 361px;
   background: #ffffff;
   border-radius: 10px;
   box-sizing: border-box;
