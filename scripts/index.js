@@ -1,15 +1,15 @@
 import { cardsInitial } from "./cards.js";
 import { FormValidator, validationData } from "./validate.js";
+import { Card } from "./card.js";
+import { photoPopup } from "./card.js";
 
 // переменные попапа
 const profilePopup = document.querySelector(".popup_type_profile");
 const cardPopup = document.querySelector(".popup_type_card");
-const photoPopup = document.querySelector(".popup_type_photo");
 const buttonEdit = document.querySelector(".profile__edit-button");
 const buttonAdd = document.querySelector(".profile__add-button");
 const profileCloseButton = profilePopup.querySelector(".popup__close-button");
 const cardCloseButton = cardPopup.querySelector(".popup__close-button");
-const photoCloseButton = photoPopup.querySelector(".popup__close-button");
 
 // переменные формы заполнения попапа профиля
 const formElementProfile = profilePopup.querySelector(
@@ -29,10 +29,6 @@ const cardTitle = document.querySelector(".element__text");
 // переменные исходных и новых карточек
 const elementsContainer = document.querySelector(".elements");
 
-// переменные попапа фото
-const photoItem = photoPopup.querySelector(".popup__photo");
-const caption = photoPopup.querySelector(".popup__photo-caption");
-
 // переменная esc
 const ESC_KEY_CODE = 27;
 
@@ -44,76 +40,6 @@ const formProfileValidator = new FormValidator(
 formProfileValidator.enableValidation();
 const formCardValidator = new FormValidator(validationData, formElementCard);
 formCardValidator.enableValidation();
-
-// объект карточки
-class Card {
-  constructor(titleValue, linkValue, cardSelector) {
-    this._titleValue = titleValue;
-    this._linkValue = linkValue;
-    this._cardSelector = cardSelector;
-  }
-
-  _getTemplate() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".element")
-      .cloneNode(true);
-    return cardElement;
-  }
-
-  generateCard() {
-    this._element = this._getTemplate();
-    this._cardPhoto = this._element.querySelector(".element__photo");
-    this._setEventListeners();
-    this._element.querySelector(".element__text").textContent =
-      this._titleValue;
-    this._cardPhoto.src = this._linkValue;
-    this._cardPhoto.alt = this._titleValue;
-    return this._element;
-  }
-
-  _setEventListeners() {
-    this._element
-      .querySelector(".element__trash")
-      .addEventListener("click", () => {
-        this._deleteCard();
-      });
-
-    this._element
-      .querySelector(".element__like")
-      .addEventListener("click", () => {
-        this._likeCard();
-      });
-
-    this._cardPhoto.addEventListener("click", () => {
-      this._openPhotoPopup();
-    });
-
-    photoCloseButton.addEventListener("click", () => {
-      closePopup(photoPopup);
-    });
-  }
-
-  // метод лайка карточек
-  _likeCard() {
-    this._element
-      .querySelector(".element__like")
-      .classList.toggle("element__like_active");
-  }
-
-  // метод удаления карточек
-  _deleteCard() {
-    this._element.closest(".element").remove();
-  }
-
-  // метод открытия попапа
-  _openPhotoPopup() {
-    photoItem.src = this._linkValue;
-    caption.textContent = this._titleValue;
-    photoItem.alt = this._titleValue;
-    openPopup(photoPopup);
-  }
-}
 
 // функция создания карточек
 cardsInitial.forEach((item) => {
@@ -130,7 +56,7 @@ function renderCard(titleValue, linkValue) {
 }
 
 // функия открытия попапа
-function openPopup(item) {
+export function openPopup(item) {
   item.classList.add("popup_opened");
   item.addEventListener("click", closePopupByOverlay);
   document.addEventListener(
@@ -146,11 +72,11 @@ function openProfilePopup(item) {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   openPopup(item);
-  // toggleButtonStateOnStart(item, validationData);
+  formProfileValidator.toggleButtonStateOnStart();
 }
 
 // функция закрытия попапа
-function closePopup(item) {
+export function closePopup(item) {
   item.classList.remove("popup_opened");
   item.removeEventListener("click", closePopupByOverlay);
 }
@@ -175,7 +101,7 @@ function handleSubmitCardForm(evt) {
   renderCard(titleValue, linkValue);
   closePopup(cardPopup);
   formElementCard.reset();
-  // toggleButtonStateOnStart(cardPopup, validationData);
+  formCardValidator.toggleButtonStateOnStart();
 }
 
 // функция закрытия попапа по нажатию на оверлей

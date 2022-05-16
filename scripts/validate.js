@@ -51,7 +51,7 @@ export class FormValidator {
     }
   };
   // функция переключения состояния кнопки при открытии/закрытии формы
-  _toggleButtonStateOnStart = () => {
+  toggleButtonStateOnStart = () => {
     this._inputList = Array.from(
       this._formElement.querySelectorAll(this._inputSelector)
     );
