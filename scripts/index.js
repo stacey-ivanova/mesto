@@ -45,12 +45,6 @@ function createCard(item) {
   const cardElement = card.generateCard();
   return cardElement;
 }
-
-cardsInitial.forEach((item) => {
-  const cardElement = createCard(item);
-  elementsContainer.prepend(cardElement);
-});
-
 // функции отрисовки карточек
 
 cardsInitial.forEach((item) => {
@@ -59,8 +53,8 @@ cardsInitial.forEach((item) => {
 });
 
 function renderCard(titleValue, linkValue) {
-  const card = new Card(titleValue, linkValue, "#card");
-  const cardElement = card.generateCard();
+  const cardElement = createCard(item);
+  elementsContainer.prepend(cardElement);
   elementsContainer.prepend(cardElement);
 }
 
