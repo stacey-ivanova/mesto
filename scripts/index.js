@@ -71,7 +71,7 @@ export function openPopup(item) {
   item.classList.add("popup_opened");
   item.addEventListener("click", closePopupByOverlay);
   document.addEventListener("keydown", closePopupByEsc);
-  if (item === "profilePopup") {
+  if ((item = "profilePopup")) {
     formProfileValidator.resetValidation();
   } else {
     formCardValidator.resetValidation();
