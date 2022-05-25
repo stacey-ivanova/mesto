@@ -2,7 +2,6 @@ import { openPopup, closePopup } from "./index.js";
 
 // переменные попапа фото
 export const photoPopup = document.querySelector(".popup_type_photo");
-const photoCloseButton = photoPopup.querySelector(".popup__close-button");
 const photoItem = photoPopup.querySelector(".popup__photo");
 const caption = photoPopup.querySelector(".popup__photo-caption");
 
@@ -24,6 +23,8 @@ export class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._likeButton = this._element.querySelector(".element__like");
+    this._trashButton = this._element.querySelector(".element__trash");
     this._cardPhoto = this._element.querySelector(".element__photo");
     this._setEventListeners();
     this._element.querySelector(".element__text").textContent =
@@ -34,32 +35,22 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".element__trash")
-      .addEventListener("click", () => {
-        this._deleteCard();
-      });
+    this._trashButton.addEventListener("click", () => {
+      this._deleteCard();
+    });
 
-    this._element
-      .querySelector(".element__like")
-      .addEventListener("click", () => {
-        this._likeCard();
-      });
+    this._likeButton.addEventListener("click", () => {
+      this._likeCard();
+    });
 
     this._cardPhoto.addEventListener("click", () => {
       this._openPhotoPopup();
-    });
-
-    photoCloseButton.addEventListener("click", () => {
-      closePopup(photoPopup);
     });
   }
 
   // метод лайка карточек
   _likeCard() {
-    this._element
-      .querySelector(".element__like")
-      .classList.toggle("element__like_active");
+    this._likeButton.classList.toggle("element__like_active");
   }
 
   // метод удаления карточек
