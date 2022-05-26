@@ -56,7 +56,6 @@ export class FormValidator {
     this._inputList.forEach((formInput) => {
       this._hideInputError(formInput);
     });
-    this._formElement.reset();
   };
 
   // функция проверки наличия ошибки ввода

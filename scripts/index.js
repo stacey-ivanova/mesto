@@ -69,11 +69,13 @@ function closePopupByEsc(evt) {
 // функия открытия попапа
 export function openPopup(item) {
   item.classList.add("popup_opened");
-  item.addEventListener("click", closePopupByOverlay);
+  item.addEventListener("mousedown", closePopupByOverlay);
   document.addEventListener("keydown", closePopupByEsc);
-  if ((item = "profilePopup")) {
+  const classStr = item.classList.value;
+  if (classStr.match("popup_type_profile")) {
     formProfileValidator.resetValidation();
   } else {
+    formElementCard.reset();
     formCardValidator.resetValidation();
   }
 }
@@ -87,7 +89,7 @@ function openProfilePopup(item) {
 // функция закрытия попапа
 export function closePopup(item) {
   item.classList.remove("popup_opened");
-  item.removeEventListener("click", closePopupByOverlay);
+  item.removeEventListener("mousedown", closePopupByOverlay);
   document.removeEventListener("keydown", closePopupByEsc);
 }
 
@@ -108,7 +110,9 @@ function handleSubmitCardForm(evt) {
   const titleValue = titleInput.value;
   const linkValue = linkInput.value;
   renderCard(titleValue, linkValue);
+
   formCardValidator.resetValidation();
+  formElementCard.reset();
   closePopup(cardPopup);
 }
 
