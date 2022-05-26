@@ -53,8 +53,11 @@ cardsInitial.forEach((item) => {
 });
 
 function renderCard(titleValue, linkValue) {
+  const item = {
+    name: titleValue,
+    link: linkValue,
+  };
   const cardElement = createCard(item);
-  elementsContainer.prepend(cardElement);
   elementsContainer.prepend(cardElement);
 }
 
@@ -71,13 +74,6 @@ export function openPopup(item) {
   item.classList.add("popup_opened");
   item.addEventListener("mousedown", closePopupByOverlay);
   document.addEventListener("keydown", closePopupByEsc);
-  const classStr = item.classList.value;
-  if (classStr.match("popup_type_profile")) {
-    formProfileValidator.resetValidation();
-  } else {
-    formElementCard.reset();
-    formCardValidator.resetValidation();
-  }
 }
 
 function openProfilePopup(item) {
@@ -100,7 +96,6 @@ function handleSubmitProfileForm(evt) {
   const jobValue = jobInput.value;
   profileName.textContent = nameValue;
   profileJob.textContent = jobValue;
-  formProfileValidator.resetValidation();
   closePopup(profilePopup);
 }
 
@@ -110,9 +105,6 @@ function handleSubmitCardForm(evt) {
   const titleValue = titleInput.value;
   const linkValue = linkInput.value;
   renderCard(titleValue, linkValue);
-
-  formCardValidator.resetValidation();
-  formElementCard.reset();
   closePopup(cardPopup);
 }
 
@@ -125,9 +117,12 @@ function closePopupByOverlay(evt) {
 
 //слушатели открытия попапов
 buttonEdit.addEventListener("click", function () {
+  formProfileValidator.resetValidation();
   openProfilePopup(profilePopup);
 });
 buttonAdd.addEventListener("click", function () {
+  formElementCard.reset();
+  formCardValidator.resetValidation();
   openPopup(cardPopup);
 });
 

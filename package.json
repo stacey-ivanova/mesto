@@ -1,0 +1,19 @@
+{
+  "name": "yandex.praktikum",
+  "version": "0.0.1",
+  "description": "learning platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stacey-ivanova/mesto.git"
+  },
+  "author": "Stacey Ivanova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stacey-ivanova/mesto/issues"
+  },
+  "homepage": "https://github.com/stacey-ivanova/mesto#readme"
+}
