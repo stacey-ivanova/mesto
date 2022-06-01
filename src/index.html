@@ -2,14 +2,17 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <meta name="viewport" content="width=1, initial-scale=1.0" />
     <title>Mesto</title>
   </head>
   <body class="page-content">
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="логотип сайта" />
+        <img
+          class="header__logo"
+          src="<%=require('./images/logo.svg')%>"
+          alt="логотип сайта"
+        />
       </header>
       <main class="content">
         <section class="profile-info">
@@ -17,7 +20,7 @@
             <div class="profile__user">
               <img
                 class="profile__avatar"
-                src="./images/Avatar.png"
+                src="<%=require('./images/Avatar.png')%>"
                 alt="фотография пользователя"
               />
               <div class="profile__text">
@@ -121,7 +124,7 @@
         <figure class="popup__photo-group">
           <img
             class="popup__photo"
-            src="./images/kirill-pershin-1556355-unsplash.png"
+            src="<%=require('./images/kirill-pershin-1556355-unsplash.png')%>"
             alt=""
           />
           <figcaption class="popup__photo-caption"></figcaption>
@@ -131,11 +134,15 @@
     <template id="card">
       <li class="element">
         <button type="button" class="element__trash">
-          <img src="./images/group.svg" width="18px" height="19px" />
+          <img
+            src="<%=require('./images/group.svg')%>"
+            width="18px"
+            height="19px"
+          />
         </button>
         <img
           class="element__photo"
-          src="./images/kirill-pershin-1404681-unsplash.png"
+          src="<%=require('./images/kirill-pershin-1404681-unsplash.png')%>"
           alt=""
         />
         <div class="element__info">

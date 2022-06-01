@@ -1,3 +1,16 @@
+const karachaevskImage = new URL(
+  "../images/kirill-pershin-1088404-unsplash.png",
+  import.meta.url
+);
+const elbrusImage = new URL(
+  "../images/kirill-pershin-1404681-unsplash.png",
+  import.meta.url
+);
+const dombayImage = new URL(
+  "../images/kirill-pershin-1556355-unsplash.png",
+  import.meta.url
+);
+
 // переменные попапа фото
 export const photoPopup = document.querySelector(".popup_type_photo");
 export const photoItem = photoPopup.querySelector(".popup__photo");
@@ -52,32 +65,32 @@ export const validationData = {
 export const cardsInitial = [
   {
     title: "Карачаевск",
-    link: "./images/kirill-pershin-1088404-unsplash.png",
+    link: karachaevskImage,
     alt: "фотография Карачаевска",
   },
   {
     title: "Гора Эльбрус",
-    link: "./images/kirill-pershin-1404681-unsplash.png",
+    link: elbrusImage,
     alt: "фотография Эльбруса",
   },
   {
     title: "Домбай",
-    link: "./images/kirill-pershin-1556355-unsplash.png",
+    link: dombayImage,
     alt: "фотография Домбая",
   },
   {
     title: "Гора Эльбрус",
-    link: "./images/kirill-pershin-1404681-unsplash.png",
+    link: elbrusImage,
     alt: "фотография Эльбруса",
   },
   {
     title: "Домбай",
-    link: "./images/kirill-pershin-1556355-unsplash.png",
+    link: dombayImage,
     alt: "фотография Домбая",
   },
   {
     title: "Карачаево-Черкессия",
-    link: "./images/kirill-pershin-1088404-unsplash.png",
+    link: karachaevskImage,
     alt: "фотография Карачаево-Черкессии",
   },
 ];
