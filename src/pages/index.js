@@ -17,11 +17,11 @@ import {
 } from "../utils/constants.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
+import { caption, photoItem } from "../utils/constants.js";
 
 // экземпляр класса
 const formProfileValidator = new FormValidator(
@@ -49,7 +49,7 @@ const popupCardForm = new PopupWithForm(
   {
     handleSubmitForm: (evt) => {
       evt.preventDefault();
-      const formValue = popupCardForm._getInputValues();
+      const formValue = popupCardForm.getInputValues();
       renderCard(formValue);
       popupCardForm.close();
     },
@@ -61,7 +61,7 @@ const popupProfileForm = new PopupWithForm(
   {
     handleSubmitForm: (evt) => {
       evt.preventDefault();
-      const user = popupProfileForm._getInputValues();
+      const user = popupProfileForm.getInputValues();
       userData.setUserInfo(user);
       popupProfileForm.close();
     },
@@ -79,7 +79,9 @@ function createCard(item) {
     handleCardClick: () => {
       const titleValue = item.title;
       const linkValue = item.link;
-      popupWithPhoto.open(titleValue, linkValue);
+      const photoCaption = caption;
+      const targetPhotoItem = photoItem;
+      popupWithPhoto.open(titleValue, linkValue, photoCaption, targetPhotoItem);
     },
   });
   const cardElement = card.generateCard();

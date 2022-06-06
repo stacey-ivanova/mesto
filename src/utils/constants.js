@@ -13,6 +13,7 @@ const dombayImage = new URL(
 
 // переменные попапа фото
 export const photoPopup = document.querySelector(".popup_type_photo");
+
 export const photoItem = photoPopup.querySelector(".popup__photo");
 export const caption = photoPopup.querySelector(".popup__photo-caption");
 

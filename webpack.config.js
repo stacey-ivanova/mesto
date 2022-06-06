@@ -8,11 +8,12 @@ module.exports = {
     main: "./src/pages/index.js",
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "./dist"),
     filename: "main.js",
     publicPath: "",
   },
   mode: "development",
+  devtool: "source-map",
   devServer: {
     static: path.resolve(__dirname, "./dist"),
     open: true,
@@ -48,11 +49,9 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin([
-      {
-        template: "./src/index.html",
-      },
-    ]),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
   ],
