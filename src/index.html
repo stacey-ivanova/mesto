@@ -20,15 +20,16 @@
             <div class="profile__user">
               <img
                 class="profile__avatar"
-                src="<%=require('./images/Avatar.png')%>"
+                src=""
                 alt="фотография пользователя"
               />
+              <button type="button" class="profile__avatar-edit"></button>
               <div class="profile__text">
                 <div class="profile__text-edit">
-                  <h1 class="profile__title">Жак-Ив Кусто</h1>
+                  <h1 class="profile__title"></h1>
                   <button type="button" class="profile__edit-button"></button>
                 </div>
-                <p class="profile__subtitle">Исследователь океана</p>
+                <p class="profile__subtitle"></p>
               </div>
             </div>
             <button type="button" class="profile__add-button"></button>
@@ -67,7 +68,7 @@
           <label class="popup__form-field">
             <input
               type="text"
-              name="job"
+              name="about"
               id="job-input"
               placeholder="Введите профессию"
               class="popup__input popup__input_type_job"
@@ -94,7 +95,7 @@
             <input
               type="text"
               id="title-input"
-              name="title"
+              name="name"
               placeholder="Название"
               class="popup__input popup__input_type_title"
               minlength="1"
@@ -131,6 +132,37 @@
         </figure>
       </div>
     </div>
+    <div class="popup popup_type_avatar">
+      <div class="popup__content">
+        <button type="button" class="popup__close-button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form
+          class="popup__form popup__form_type_avatar"
+          name="editform"
+          novalidate
+        >
+          <label class="popup__form-field">
+            <input
+              type="url"
+              name="avatar"
+              id="avatar-input"
+              placeholder="Введите ссылку"
+              class="popup__input popup__input_type_avatar"
+              required
+            />
+            <span class="popup__input-error avatar-input-error"></span>
+          </label>
+          <button type="submit" class="popup__submit-button">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_confirmation">
+      <div class="popup__content">
+        <button type="button" class="popup__close-button"></button>
+        <h2 class="popup__title popup__title_type_confirmation">Вы уверены?</h2>
+        <button type="submit" class="popup__submit-button">Да</button>
+      </div>
+    </div>
     <template id="card">
       <li class="element">
         <button type="button" class="element__trash">
@@ -147,19 +179,12 @@
         />
         <div class="element__info">
           <h2 class="element__text"></h2>
-          <button type="button" class="element__like"></button>
+          <div class="element__like">
+            <button type="button" class="element__like-button"></button>
+            <p class="element__like-number"></p>
+          </div>
         </div>
       </li>
     </template>
-
-    <!-- <script type="module" src="./utils/constants.js"></script>
-    <script type="module" src="./components/Card.js"></script>
-    <script type="module" src="./components/Popup.js"></script>
-    <script type="module" src="./components/FormValidator.js"></script>
-    <script type="module" src="./components/PopupWithForm.js"></script>
-    <script type="module" src="./components/PopupWithImage.js"></script>
-    <script type="module" src="./components/Section.js"></script>
-    <script type="module" src="./components/UserInfo.js"></script>
-    <script type="module" src="./pages/index.js"></script> -->
   </body>
 </html>

@@ -9,7 +9,18 @@ export default class Popup {
     this._popupSelector.classList.add("popup_opened");
     this._setEventListeners();
   }
-
+  loader(isload, Popup) {
+    const buttonSrch = Popup.querySelector(".popup__submit-button");
+    if (isload) {
+      buttonSrch.classList.add("popup__submit-button_inactive");
+      buttonSrch.disabled = true;
+      buttonSrch.textContent = "Сохранение...";
+    } else {
+      buttonSrch.classList.remove("popup__submit-button_inactive");
+      buttonSrch.disabled = false;
+      buttonSrch.textContent = "Сохранить";
+    }
+  }
   close() {
     this._popupSelector.classList.remove("popup_opened");
     this._removeEventListeners();

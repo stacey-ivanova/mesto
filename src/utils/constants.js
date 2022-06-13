@@ -18,12 +18,16 @@ export const photoItem = photoPopup.querySelector(".popup__photo");
 export const caption = photoPopup.querySelector(".popup__photo-caption");
 
 // переменные попапа
+export const prAvatar = document.querySelector(".profile__avatar");
 export const profilePopup = document.querySelector(".popup_type_profile");
 export const cardPopup = document.querySelector(".popup_type_card");
 export const buttonEdit = document.querySelector(".profile__edit-button");
 export const buttonAdd = document.querySelector(".profile__add-button");
+export const changeAva = document.querySelector(".profile__avatar-edit");
 export const closeButton = document.querySelector(".popup__close-button");
-
+export const submitPopup = document.querySelector(".popup_type_confirmation");
+export const avatarPopup = document.querySelector(".popup_type_avatar");
+export const profileAvatar = document.querySelector(".popup__form_type_avatar");
 // переменные формы заполнения попапа профиля
 export const formElementProfile = profilePopup.querySelector(
   ".popup__form_type_profile"
