@@ -4,21 +4,20 @@ export default class Popup {
     this._closeButton = this._popupSelector.querySelector(
       ".popup__close-button"
     );
+    this.buttonSrch = this._popupSelector.querySelector(
+      ".popup__submit-button"
+    );
+    this.closes = this.close.bind(this);
   }
   open() {
     this._popupSelector.classList.add("popup_opened");
     this._setEventListeners();
   }
-  loader(isload, Popup) {
-    const buttonSrch = Popup.querySelector(".popup__submit-button");
+  loader(isload) {
     if (isload) {
-      buttonSrch.classList.add("popup__submit-button_inactive");
-      buttonSrch.disabled = true;
-      buttonSrch.textContent = "Сохранение...";
+      this.buttonSrch.textContent = "Сохранение...";
     } else {
-      buttonSrch.classList.remove("popup__submit-button_inactive");
-      buttonSrch.disabled = false;
-      buttonSrch.textContent = "Сохранить";
+      this.buttonSrch.textContent = "Сохранить";
     }
   }
   close() {
@@ -41,11 +40,11 @@ export default class Popup {
   _setEventListeners() {
     this._popupSelector.addEventListener("mousedown", this._closeByOverlay);
     document.addEventListener("keydown", this._handleEscClose);
-    this._closeButton.addEventListener("click", () => this.close());
+    this._closeButton.addEventListener("click", this.closes);
   }
   _removeEventListeners() {
     this._popupSelector.removeEventListener("mousedown", this._closeByOverlay);
     document.removeEventListener("keydown", this._handleEscClose);
-    this._closeButton.removeEventListener("click", () => this.close());
+    this._closeButton.removeEventListener("click", this.closes);
   }
 }

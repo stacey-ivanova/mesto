@@ -7,8 +7,8 @@ export default class UserInfo {
   getUserId() {
     return this._userIdData;
   }
-  setUserAva() {
-    this._userAvatar.src = this._userAvatarData;
+  setUserAva(ava) {
+    this._userAvatar.src = ava;
   }
   getUserInf() {
     const userInfo = {

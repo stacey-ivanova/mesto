@@ -7,11 +7,11 @@ const handleResponse = (res) => {
 
 export default class Api {
   constructor({ baseUrl, headers }) {
-    this.baseUrl = baseUrl;
+    this._baseUrl = baseUrl;
     this.headers = headers;
   }
   getInitialCards() {
-    return fetch(`${this.baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       headers: {
         authorization: this.headers.authorization,
       },
@@ -19,7 +19,7 @@ export default class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this.baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: {
         authorization: this.headers.authorization,
       },
@@ -27,7 +27,7 @@ export default class Api {
   }
 
   changeUserInfo(user) {
-    return fetch(`${this.baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: {
         authorization: this.headers.authorization,
@@ -41,12 +41,9 @@ export default class Api {
   }
 
   changeAvatar(link) {
-    return fetch(`${this.baseUrl}/users/me/avatar`, {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
       body: JSON.stringify({
         avatar: link,
       }),
@@ -54,42 +51,30 @@ export default class Api {
   }
 
   newCard(value) {
-    return fetch(`${this.baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
       body: JSON.stringify(value),
     }).then(handleResponse);
   }
   deleteCard(cardId) {
-    fetch(`${this.baseUrl}/cards/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
     }).then(handleResponse);
   }
 
   likeCard(cardId) {
-    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
     }).then(handleResponse);
   }
 
   disLikeCard(cardId) {
-    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
     }).then(handleResponse);
   }
 }
