@@ -3,26 +3,21 @@ import Popup from "./Popup.js";
 export default class PopupWithForm extends Popup {
   constructor({ handleDeleteCard }, popupSelector) {
     super(popupSelector);
-    this._handleDeleteCard = handleDeleteCard.bind(this);
-    this.sendbutton = this._popupSelector.querySelector(
-      ".popup__submit-button"
-    );
+    this._handleDeleteCard = handleDeleteCard;
+    this._formSubmitHandler = this._formSubmitHandler.bind(this);
   }
-
+  _formSubmitHandler(evt) {
+    evt.preventDefault();
+    this._handleDeleteCard(this.cardId, this.cardElement);
+  }
   _setEventListeners() {
-    this.sendbutton.addEventListener(
-      "click",
-      this._handleDeleteCard(this.cardId, this.cardElement)
-    );
+    this.buttonSrch.addEventListener("click", this._formSubmitHandler);
 
     super._setEventListeners();
   }
 
   _removeEventListeners() {
-    this.sendbutton.removeEventListener(
-      "click",
-      this._handleDeleteCard(this.cardId, this.cardElement)
-    );
+    this.buttonSrch.removeEventListener("click", this._formSubmitHandler);
     super._removeEventListeners();
   }
   open(id, element) {

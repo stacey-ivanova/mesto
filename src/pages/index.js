@@ -80,6 +80,7 @@ function createCard(item) {
         const submitAccess = new PopupWithSubmit(
           {
             handleDeleteCard: (cardId, cardEl) => {
+              submitAccess.loader(true);
               api
                 .deleteCard(cardId)
                 .then(() => {
@@ -88,6 +89,9 @@ function createCard(item) {
                 })
                 .catch((err) => {
                   console.log(err); // выведем ошибку в консоль
+                })
+                .finally(() => {
+                  submitAccess.loader(false);
                 });
             },
           },
