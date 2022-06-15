@@ -7,7 +7,7 @@ export default class Popup {
     this.buttonSrch = this._popupSelector.querySelector(
       ".popup__submit-button"
     );
-    this.closes = this.close.bind(this);
+    this._closes = this.close.bind(this);
   }
   open() {
     this._popupSelector.classList.add("popup_opened");
@@ -40,11 +40,11 @@ export default class Popup {
   _setEventListeners() {
     this._popupSelector.addEventListener("mousedown", this._closeByOverlay);
     document.addEventListener("keydown", this._handleEscClose);
-    this._closeButton.addEventListener("click", this.closes);
+    this._closeButton.addEventListener("click", this._closes);
   }
   _removeEventListeners() {
     this._popupSelector.removeEventListener("mousedown", this._closeByOverlay);
     document.removeEventListener("keydown", this._handleEscClose);
-    this._closeButton.removeEventListener("click", this.closes);
+    this._closeButton.removeEventListener("click", this._closes);
   }
 }

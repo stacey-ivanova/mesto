@@ -58,7 +58,7 @@ export default class Card {
 
   _setEventListeners() {
     this._trashButton.addEventListener("click", () => {
-      this._deleteBtn(this.cardId, this._element);
+      this._deleteBtn(this.cardId, this);
     });
 
     this._likeButton.addEventListener("click", () => {

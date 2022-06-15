@@ -51,7 +51,26 @@ const profileAvatarValidator = new FormValidator(validationData, profileAvatar);
 profileAvatarValidator.enableValidation();
 
 const popupWithPhoto = new PopupWithImage(photoPopup);
-
+const submitAccess = new PopupWithSubmit(
+  {
+    handleDeleteCard: (cardId, cardEl) => {
+      submitAccess.loader(true);
+      api
+        .deleteCard(cardId)
+        .then(() => {
+          cardEl.deleteCard();
+          submitAccess.close();
+        })
+        .catch((err) => {
+          console.log(err); // выведем ошибку в консоль
+        })
+        .finally(() => {
+          submitAccess.loader(false);
+        });
+    },
+  },
+  submitPopup
+);
 // функция создания карточек
 //создание новой карточки
 function createCard(item) {
@@ -76,28 +95,8 @@ function createCard(item) {
           targetPhotoItem
         );
       },
-      deleteBtn: (cardId, CardEl) => {
-        const submitAccess = new PopupWithSubmit(
-          {
-            handleDeleteCard: (cardId, cardEl) => {
-              submitAccess.loader(true);
-              api
-                .deleteCard(cardId)
-                .then(() => {
-                  card.deleteCard();
-                  submitAccess.close();
-                })
-                .catch((err) => {
-                  console.log(err); // выведем ошибку в консоль
-                })
-                .finally(() => {
-                  submitAccess.loader(false);
-                });
-            },
-          },
-          submitPopup
-        );
-        submitAccess.open(cardId, CardEl);
+      deleteBtn: (cardId, cardEl) => {
+        submitAccess.open(cardId, cardEl);
       },
       likeCard: (likeButton, cId) => {
         if (likeButton.classList.contains("element__like-button_active")) {

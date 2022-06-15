@@ -8,31 +8,24 @@ const handleResponse = (res) => {
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
-    this.headers = headers;
+    this._headers = headers;
   }
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: {
-        authorization: this.headers.authorization,
-      },
+      headers: this._headers,
     }).then(handleResponse);
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: {
-        authorization: this.headers.authorization,
-      },
+      headers: this._headers,
     }).then(handleResponse);
   }
 
   changeUserInfo(user) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: {
-        authorization: this.headers.authorization,
-        "Content-Type": "application/json",
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: user.name,
         about: user.about,
@@ -43,7 +36,7 @@ export default class Api {
   changeAvatar(link) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this.headers,
+      headers: this._headers,
       body: JSON.stringify({
         avatar: link,
       }),
@@ -53,28 +46,28 @@ export default class Api {
   newCard(value) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this.headers,
+      headers: this._headers,
       body: JSON.stringify(value),
     }).then(handleResponse);
   }
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
-      headers: this.headers,
+      headers: this._headers,
     }).then(handleResponse);
   }
 
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
-      headers: this.headers,
+      headers: this._headers,
     }).then(handleResponse);
   }
 
   disLikeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",
-      headers: this.headers,
+      headers: this._headers,
     }).then(handleResponse);
   }
 }
